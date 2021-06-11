@@ -30,7 +30,7 @@ export default {
       this.$nextTick(()=>{
         const content = document.querySelector('#van-doc-content section')
         if(content){
-          const contentHtml = content.innerHTML.replace(/van-/g,'w-')
+          const contentHtml = content.innerHTML.replace(/van-/g,'w-').replace(/'vant'/g,"'w-ui'")
           content.innerHTML = contentHtml
         }
         const yangShiBianLiang = document.querySelector('#yang-shi-bian-liang')
