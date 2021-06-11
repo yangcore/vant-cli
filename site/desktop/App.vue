@@ -77,11 +77,13 @@ export default {
     this.setTitleAndToogleSimulator();
   },
   mounted(){
-    const vanCustomCss = document.createElement('link');
-    vanCustomCss.href = '/site/van-custom.css'
-    vanCustomCss.rel = 'stylesheet'
-    const s = document.getElementsByTagName('head')[0];
-    s.appendChild(vanCustomCss);
+    this.$nextTick(()=>{
+      const vanCustomCss = document.createElement('link');
+      vanCustomCss.href = '/site/van-custom.css'
+      vanCustomCss.rel = 'stylesheet'
+      const s = document.getElementsByTagName('head')[0];
+      s.appendChild(vanCustomCss);
+    })
   },
   methods: {
     setTitleAndToogleSimulator() {
