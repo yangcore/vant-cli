@@ -12,6 +12,13 @@ import DemoNav from './components/DemoNav';
 
 export default {
   components: { DemoNav },
+  mounted(){
+    const vanCustomCss = document.createElement('link');
+    vanCustomCss.href = '/site/van-custom.css'
+    vanCustomCss.rel = 'stylesheet'
+    const s = document.getElementsByTagName('head')[0];
+    s.appendChild(vanCustomCss);
+  }
 };
 </script>
 
