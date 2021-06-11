@@ -29,6 +29,16 @@ export default {
     changeHtml(){
       this.$nextTick(()=>{
         const content = document.querySelector('#van-doc-content section')
+        const a = document.createElement('a')
+        a.innerHTML = '  直接查看API'
+        a.id = '_h1'
+        window.toApi = function (){
+          window.location.href = window.location.href.replace(/#api/,'')
+          window.location.href = window.location.href.replace(/#api/,'') +'#api'
+        }
+        a.setAttribute('onclick','toApi()')
+        content.querySelector('h1').appendChild(a)
+
         if(content){
           const contentHtml = content.innerHTML.replace(/van-/g,'w-').replace(/'vant'/g,"'w-ui'")
           content.innerHTML = contentHtml
