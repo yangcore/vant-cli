@@ -29,22 +29,24 @@ export default {
     changeHtml(){
       this.$nextTick(()=>{
         const content = document.querySelector('#van-doc-content section')
-
-        if(!content.querySelector('#_h1')){
-          const a = document.createElement('a')
-          a.innerHTML = '  直接查看API'
-          a.id = '_h1'
-          window.toApi = function (){
-            window.location.href = window.location.href.replace(/#api/,'')
-            window.location.href = window.location.href.replace(/#api/,'') +'#api'
+        try {
+          if(!content.querySelector('#_h1')){
+            const a = document.createElement('a')
+            a.innerHTML = '  直接查看API'
+            a.id = '_h1'
+            window.toApi = function (){
+              window.location.href = window.location.href.replace(/#api/,'')
+              window.location.href = window.location.href.replace(/#api/,'') +'#api'
+            }
+            a.setAttribute('onclick','toApi()')
+            content.querySelector('h1').appendChild(a)
           }
-          a.setAttribute('onclick','toApi()')
-          content.querySelector('h1').appendChild(a)
+        }catch (e) {
+          console.error(e)
         }
 
         if(content){
-          const contentHtml = content.innerHTML.replace(/van-/g,'w-').replace(/'vant'/g,"'w-ui'")
-          content.innerHTML = contentHtml
+          content.innerHTML = content.innerHTML.replace(/van-/g, 'w-').replace(/'vant'/g, "'w-ui'")
         }
         const yangShiBianLiang = document.querySelector('#yang-shi-bian-liang')
         if(yangShiBianLiang){
