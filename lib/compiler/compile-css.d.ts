@@ -1,2 +1,2 @@
 /// <reference types="node" />
-export declare function compileCss(source: string | Buffer): Promise<any>;
+export declare function compileCss(source: string | Buffer, filePath:string): Promise<any>;
